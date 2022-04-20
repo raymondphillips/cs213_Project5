@@ -1,7 +1,5 @@
 package cafe;
 
-import javafx.scene.control.CheckBox;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,12 +63,12 @@ public class Coffee extends MenuItem implements Customizable{
      */
     @Override
     public boolean add(Object obj) {
-        CheckBox current = (CheckBox) obj;
-        if(this.addons != null && this.addons.indexOf(current.getId()) != -1){
-            return false;
-        }
-
-        this.addons.add(current.getId());
+//        CheckBox current = (CheckBox) obj;
+//        if(this.addons != null && this.addons.indexOf(current.getId()) != -1){
+//            return false;
+//        }
+//
+//        this.addons.add(current.getId());
         return true;
     }
     /**
@@ -80,12 +78,12 @@ public class Coffee extends MenuItem implements Customizable{
      */
     @Override
     public boolean remove(Object obj) {
-        CheckBox current = (CheckBox) obj;
-        if(this.addons != null && this.addons.indexOf(current.getId()) == -1){
-            return false;
-        }
-
-        this.addons.remove(current.getId());
+//        CheckBox current = (CheckBox) obj;
+//        if(this.addons != null && this.addons.indexOf(current.getId()) == -1){
+//            return false;
+//        }
+//
+//        this.addons.remove(current.getId());
         return true;
     }
     /**

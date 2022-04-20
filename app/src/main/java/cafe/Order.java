@@ -1,8 +1,5 @@
 package cafe;
 
-import src.cafe.Customizable;
-import src.cafe.MenuItem;
-
 import java.util.ArrayList;
 import java.util.List;
 

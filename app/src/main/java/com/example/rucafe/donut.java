@@ -12,6 +12,8 @@ import android.view.ViewGroup;
  * A simple {@link Fragment} subclass.
  * Use the {@link donut#newInstance} factory method to
  * create an instance of this fragment.
+ *
+ * @author Raymond Phillips, Xiaoxuan Chen
  */
 public class donut extends Fragment {
 
@@ -46,6 +48,10 @@ public class donut extends Fragment {
         return fragment;
     }
 
+    /**
+     * a method to create the fragment instance on click of the button
+     * @param savedInstanceState a Bundle object of the previous savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +61,13 @@ public class donut extends Fragment {
         }
     }
 
+    /**
+     * a method to create the view of the fragment
+     * @param inflater an LayoutInflator object
+     * @param container a ViewGroup object
+     * @param savedInstanceState a Bundle object of the previous savedInstanceState
+     * @return the view to be displaced
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
