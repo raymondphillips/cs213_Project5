@@ -13,4 +13,10 @@
     <string name="place_order_coffee">Place Order</string>
     <string name="subtotal_coffee">Subtotal</string>
     <string name="subtotal_donut">Subtotal</string>
+    <string-array name="coffeeSizes">
+        <item>short</item>
+        <item>tall</item>
+        <item>grande</item>
+        <item>venti</item>
+    </string-array>
 </resources>
