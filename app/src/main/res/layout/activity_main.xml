@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="24dp"
-        android:text="coffee"
+        android:text="@string/coffee"
         app:layout_constraintBottom_toTopOf="@+id/ordering_basket"
         app:layout_constraintEnd_toStartOf="@+id/donut"
         app:layout_constraintHorizontal_bias="0.5"
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Store Orders"
+        android:text="@string/store_orders"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ordering_basket"
@@ -37,7 +37,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="4dp"
-        android:text="Ordering Basket"
+        android:text="@string/ordering_basket"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/store_orders"
         app:layout_constraintHorizontal_bias="0.5"
@@ -49,14 +49,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Donut"
+        android:text="@string/donut"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/coffee"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <fragement
-        android:id="@+id/fragmetn"
+    <FrameLayout
+        android:id="@+id/flFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -65,9 +65,9 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ordering_basket"
-        app:layout_constraintVertical_bias="0.24000001" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
