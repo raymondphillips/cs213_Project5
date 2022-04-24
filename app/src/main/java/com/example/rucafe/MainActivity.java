@@ -20,7 +20,7 @@ import android.widget.Toast;
  *
  * @author Raymond Phillips, Xiaoxuan Chen
  */
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity  {
 
     Button coffeeButton, donutButton, orderingBasketButton, storeOrderButton;
 
@@ -36,12 +36,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         donutButton = findViewById(R.id.donut);
         orderingBasketButton = findViewById(R.id.ordering_basket);
         storeOrderButton = findViewById(R.id.store_orders);
-
-        Spinner spinner = findViewById(R.id.coffeeSize);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.coffeeSizes, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
 
 
         coffeeButton.setOnClickListener(new View.OnClickListener() {
@@ -82,14 +76,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         fragmentTransaction.commit();
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        String text = adapterView.getItemAtPosition(i).toString();
-        Toast.makeText(adapterView.getContext(), text, Toast.LENGTH_SHORT).show();
-    }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
 }
