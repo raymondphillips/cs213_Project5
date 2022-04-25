@@ -14,6 +14,12 @@ import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import cafe.MenuItem;
+import cafe.Order;
+
 /**
  * the main activity class that deals with switching between the
  * different fragment views of the program.
@@ -22,7 +28,10 @@ import android.widget.Toast;
  */
 public class MainActivity extends AppCompatActivity  {
 
+    public static int donutPosition;
     Button coffeeButton, donutButton, orderingBasketButton, storeOrderButton;
+    public static List<MenuItem> menuItemList = new ArrayList<>();
+    public static List<Order> orderList = new ArrayList<>();
 
     /**
      * a method to create the fragment instance on click of the button
@@ -36,7 +45,6 @@ public class MainActivity extends AppCompatActivity  {
         donutButton = findViewById(R.id.donut);
         orderingBasketButton = findViewById(R.id.ordering_basket);
         storeOrderButton = findViewById(R.id.store_orders);
-
 
         coffeeButton.setOnClickListener(new View.OnClickListener() {
             @Override

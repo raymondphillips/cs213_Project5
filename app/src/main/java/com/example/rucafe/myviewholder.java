@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class myviewholder extends RecyclerView.ViewHolder {
     ImageView img;
     TextView header, desc;
+    int selectedPos;
 
     public myviewholder(@NonNull View itemView) {
         super(itemView);

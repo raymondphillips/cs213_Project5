@@ -2,7 +2,7 @@
     <string name="app_name">RU Cafe</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="place_order_donut">Place Order</string>
+    <string name="place_order_donut">Add to Basket</string>
     <string name="add_ins">Add Ins</string>
     <string name="cream">cream</string>
     <string name="syrup">syrup</string>
@@ -10,7 +10,7 @@
     <string name="caramel">caramel</string>
     <string name="whipped_cream">whipped cream</string>
     <string name="remove_order">Remove Order</string>
-    <string name="place_order_coffee">Place Order</string>
+    <string name="place_order_coffee">Add to Basket</string>
     <string name="subtotal_coffee">Subtotal</string>
     <string name="subtotal_donut">Subtotal</string>
     <string name="donut">Donut</string>
@@ -18,6 +18,7 @@
     <string name="store_orders">Store Orders</string>
     <string name="ordering_basket">Ordering Basket</string>
     <string name="place_order_orderingBasket">Place Order</string>
+    <string name="delete_item_orderingBasket">Delete Item</string>
     <string name="glaze_donut">Glaze Donut</string>
     <string name="this_is_description_text">This is Description Text</string>
     <string name="this_is_header_text">This is Header Text</string>

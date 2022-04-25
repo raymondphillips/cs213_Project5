@@ -2,13 +2,16 @@ package com.example.rucafe;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
@@ -24,6 +27,7 @@ public class donut extends Fragment {
     RecyclerView donutSelecter;
     ArrayList<donutModel> dataholder;
     View view;
+    Button donutOrder;
 
     /**
      * a method to create the view of the fragment
@@ -35,13 +39,11 @@ public class donut extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_donut, container, false);
         donutSelecter = view.findViewById(R.id.donut_selection);
         donutSelecter.setLayoutManager(new LinearLayoutManager(getContext()));
         dataholder = new ArrayList<>();
-
 
         donutModel ob1 = new donutModel(R.drawable.cakedonutglaze, "Cake Donut Glazed", "$1.79");
         dataholder.add(ob1);
@@ -71,6 +73,16 @@ public class donut extends Fragment {
         dataholder.add(ob12);
 
         donutSelecter.setAdapter(new recyclerAdapter(dataholder));
+
+        donutOrder = (Button) view.findViewById(R.id.donutOrder);
+        donutOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //https://stackoverflow.com/questions/53154171/retrieve-data-from-recyclerview
+                int pos = MainActivity.donutPosition;
+                System.out.println(dataholder.get(pos).getHeader());
+            }
+        });
 
         return view;
     }

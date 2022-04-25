@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
-        android:id="@+id/whippped_cream"
+        android:id="@+id/whipped_cream"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/whipped_cream"

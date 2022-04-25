@@ -1,20 +1,26 @@
 package com.example.rucafe;
 
+import android.content.Context;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class recyclerAdapter extends RecyclerView.Adapter<myviewholder> {
+public class recyclerAdapter extends RecyclerView.Adapter<myviewholder>{
 
    ArrayList<donutModel> dataholder;
+   int nutPosition;
 
     public recyclerAdapter(ArrayList<donutModel> dataholder) {
+
         this.dataholder = dataholder;
     }
 
@@ -70,7 +76,16 @@ public class recyclerAdapter extends RecyclerView.Adapter<myviewholder> {
         holder.img.setImageResource(dataholder.get(position).getImage());
         holder.header.setText(dataholder.get(position).getHeader());
         holder.desc.setText(dataholder.get(position).getDesc());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                nutPosition = holder.getBindingAdapterPosition();
+                MainActivity.donutPosition = nutPosition;
+            }
+        });
     }
+
 
     /**
      * Returns the total number of items in the data set held by the adapter.
@@ -81,4 +96,5 @@ public class recyclerAdapter extends RecyclerView.Adapter<myviewholder> {
     public int getItemCount() {
         return dataholder.size();
     }
+
 }
