@@ -21,7 +21,7 @@ public class Coffee extends MenuItem implements Customizable{
     private double addonPricePer = 0.30;
 
     private double roundingMargin = 100.0;
-    private final String whipCreamAddin = "whipped_creamm";
+    private final String whipCreamAddin = "whipped_cream";
     private final String milkAddin = "milk";
     private final String caramelAddin = "caramel";
     private final String syrupAddin = "syrup";
@@ -35,10 +35,10 @@ public class Coffee extends MenuItem implements Customizable{
 
     private final String noAddinName = "None (Black)";
 
-    private final String shortSize = "Short";
-    private final String tallSize = "Tall";
-    private final String grandeSize = "Grande";
-    private final String ventiSize = "Venti";
+    private final String shortSize = "short";
+    private final String tallSize = "tall";
+    private final String grandeSize = "grande";
+    private final String ventiSize = "venti";
 
     /**
      * a method to get the item price of a coffee order

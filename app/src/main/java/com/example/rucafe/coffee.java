@@ -54,7 +54,7 @@ public class coffee extends Fragment{
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String text = adapterView.getItemAtPosition(i).toString();
-                Toast.makeText(adapterView.getContext(), text, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(adapterView.getContext(), text, Toast.LENGTH_SHORT).show();
                 currentSelectedSize = text;
             }
 
@@ -133,6 +133,7 @@ public class coffee extends Fragment{
             public void onClick(View v) {
                 Coffee toAdd = new Coffee(currentSelectedSize, addins);
                 MainActivity.menuItemList.add(toAdd);
+                //toast here about order being placed
             }
         });
 
