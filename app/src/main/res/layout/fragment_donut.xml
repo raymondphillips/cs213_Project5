@@ -36,11 +36,28 @@
        android:id="@+id/donut_subtotal"
        android:layout_width="80dp"
        android:layout_height="34dp"
-       android:layout_marginBottom="65dp"
+       android:layout_marginBottom="70dp"
        android:text="@string/subtotal_donut"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toStartOf="@+id/donutQuantity"
+       app:layout_constraintHorizontal_bias="0.5"
+       app:layout_constraintStart_toStartOf="parent" />
+
+   <EditText
+       android:id="@+id/donutQuantity"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginBottom="70dp"
+       android:autofillHints=""
+       android:ems="10"
+       android:hint="@string/donut_quantity"
+       android:inputType="number"
+       android:minHeight="48dp"
+       android:text="@string/quanitity"
+       android:visibility="visible"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintHorizontal_bias="0.5"
-       app:layout_constraintStart_toStartOf="parent" />
+       app:layout_constraintStart_toEndOf="@+id/donut_subtotal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

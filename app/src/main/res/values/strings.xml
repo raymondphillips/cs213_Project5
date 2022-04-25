@@ -23,6 +23,8 @@
     <string name="this_is_description_text">This is Description Text</string>
     <string name="this_is_header_text">This is Header Text</string>
     <string name="todo">TODO</string>
+    <string name="quanitity">quanitity</string>
+    <string name="donut_quantity">donut_quantity</string>
     <string-array name="coffeeSizes">
         <item>short</item>
         <item>tall</item>
