@@ -12,11 +12,11 @@
         android:id="@+id/placeOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/place_order_orderingBasket"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.124"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
@@ -35,8 +35,11 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:text="@string/delete_item_orderingBasket"
-        tools:layout_editor_absoluteX="244dp"
-        tools:layout_editor_absoluteY="656dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/placeOrder" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
