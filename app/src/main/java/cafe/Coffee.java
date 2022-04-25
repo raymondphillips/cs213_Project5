@@ -21,6 +21,24 @@ public class Coffee extends MenuItem implements Customizable{
     private double addonPricePer = 0.30;
 
     private double roundingMargin = 100.0;
+    private final String whipCreamAddin = "whipped_creamm";
+    private final String milkAddin = "milk";
+    private final String caramelAddin = "caramel";
+    private final String syrupAddin = "syrup";
+    private final String creamAddin = "cream";
+
+    private final String whipCreamName = "Whipped Cream";
+    private final String milkName = "Milk";
+    private final String caramelName = "Caramel";
+    private final String syrupName = "Syrup";
+    private final String creamName = "Cream";
+
+    private final String noAddinName = "None (Black)";
+
+    private final String shortSize = "Short";
+    private final String tallSize = "Tall";
+    private final String grandeSize = "Grande";
+    private final String ventiSize = "Venti";
 
     /**
      * a method to get the item price of a coffee order
@@ -30,16 +48,16 @@ public class Coffee extends MenuItem implements Customizable{
     public double itemPrice(){
         double total = 0.00;
         switch(this.size){
-            case "Short":
+            case shortSize:
                 total += shortPrice;
                 break;
-            case "Tall":
+            case tallSize:
                 total += tallPrice;
                 break;
-            case "Grande":
+            case grandeSize:
                 total += grandePrice;
                 break;
-            case "Venti":
+            case ventiSize:
                 total += ventiPrice;
                 break;
         }
@@ -54,6 +72,30 @@ public class Coffee extends MenuItem implements Customizable{
     public Coffee(String size){
         this.size = size;
         this.addons = new ArrayList<String>();
+    }
+
+    /**
+     * coffee class constructor
+     * @param size of coffee
+     * @param addins addins for coffee
+     */
+    public Coffee(String size, List<String> addins){
+        this.size = size;
+        this.addons = new ArrayList<String>();
+        for(int i = 0; i < addins.size(); i++){
+            switch(addins.get(i)){
+                case whipCreamAddin: this.addons.add(whipCreamAddin);
+                break;
+                case milkAddin: this.addons.add(milkAddin);
+                break;
+                case caramelAddin: this.addons.add(caramelAddin);
+                break;
+                case syrupAddin: this.addons.add(syrupAddin);
+                break;
+                case creamAddin: this.addons.add(creamAddin);
+                break;
+            }
+        }
     }
 
     /**
@@ -94,19 +136,19 @@ public class Coffee extends MenuItem implements Customizable{
     public String toString(){
         String toReturn = "Coffee-" + this.size + "-Addons:-";
         if(this.addons.size() == 0){
-            toReturn += "None (Black)";
+            toReturn += noAddinName;
         } else{
             for(int i = 0; i < this.addons.size(); i++){
                 switch(this.addons.get(i)){
-                    case "creamCheckBox": toReturn += "Cream";
+                    case creamAddin: toReturn += creamName;
                     break;
-                    case "syrupCheckBox": toReturn += "Syrup";
+                    case syrupAddin: toReturn += syrupName;
                     break;
-                    case "milkCheckBox": toReturn += "Milk";
+                    case milkAddin: toReturn += milkName;
                     break;
-                    case "caramelCheckBox": toReturn += "Caramel";
+                    case caramelAddin: toReturn += caramelName;
                     break;
-                    case "whippedCreamCheckBox": toReturn += "Whipped Cream";
+                    case whipCreamAddin: toReturn += whipCreamName;
                 }
 
                 //if not last add comma

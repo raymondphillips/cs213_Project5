@@ -17,6 +17,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import cafe.Coffee;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link coffee} factory method to
@@ -26,9 +28,9 @@ import java.util.List;
  */
 public class coffee extends Fragment{
     View view;
-    String currentSelected;
-    Button orderCoffee;
-    CheckBox whipped_cream, milk, caramel, syrup, cream;
+    private String currentSelectedSize;
+    private Button orderCoffee;
+    private CheckBox whipped_cream, milk, caramel, syrup, cream;
 
     /**
      * a method to create the view of the fragment
@@ -53,7 +55,7 @@ public class coffee extends Fragment{
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String text = adapterView.getItemAtPosition(i).toString();
                 Toast.makeText(adapterView.getContext(), text, Toast.LENGTH_SHORT).show();
-                currentSelected = text;
+                currentSelectedSize = text;
             }
 
             @Override
@@ -129,11 +131,8 @@ public class coffee extends Fragment{
         orderCoffee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                for(int i =0; i < addins.size(); i++){
-                    System.out.println(addins.get(i));
-                }
-
+                Coffee toAdd = new Coffee(currentSelectedSize, addins);
+                MainActivity.menuItemList.add(toAdd);
             }
         });
 

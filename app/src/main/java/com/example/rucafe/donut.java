@@ -15,6 +15,8 @@ import android.widget.Button;
 
 import java.util.ArrayList;
 
+import cafe.Donut;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the factory method to
@@ -26,8 +28,9 @@ public class donut extends Fragment {
 
     RecyclerView donutSelecter;
     ArrayList<donutModel> dataholder;
-    View view;
-    Button donutOrder;
+    private View view;
+    private Button donutOrder;
+    private static final int quant = 1;
 
     /**
      * a method to create the view of the fragment
@@ -80,7 +83,11 @@ public class donut extends Fragment {
             public void onClick(View v) {
                 //https://stackoverflow.com/questions/53154171/retrieve-data-from-recyclerview
                 int pos = MainActivity.donutPosition;
-                System.out.println(dataholder.get(pos).getHeader());
+                //System.out.println(dataholder.get(pos).getHeader());
+                String[] donutArgs = dataholder.get(pos).getHeader().split(" ");
+                Donut donut = new Donut(donutArgs[2], donutArgs[0], quant);
+                MainActivity.menuItemList.add(donut);
+
             }
         });
 
