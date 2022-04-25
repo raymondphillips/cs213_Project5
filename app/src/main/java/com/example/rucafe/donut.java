@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,6 +32,7 @@ public class donut extends Fragment {
     ArrayList<donutModel> dataholder;
     private View view;
     private Button donutOrder;
+    private View quantity;
     private static final int quant = 1;
 
     /**
@@ -78,6 +80,8 @@ public class donut extends Fragment {
 
         donutSelecter.setAdapter(new recyclerAdapter(dataholder));
 
+        quantity = view.findViewById(R.id.donutQuantity);
+
         donutOrder = (Button) view.findViewById(R.id.donutOrder);
         donutOrder.setOnClickListener(new View.OnClickListener() {
             /**
@@ -86,6 +90,7 @@ public class donut extends Fragment {
              */
             @Override
             public void onClick(View v) {
+                openDialog();
                 //https://stackoverflow.com/questions/53154171/retrieve-data-from-recyclerview
                 int pos = MainActivity.donutPosition;
                 //System.out.println(dataholder.get(pos).getHeader());
@@ -98,5 +103,10 @@ public class donut extends Fragment {
         });
 
         return view;
+    }
+
+    public void openDialog() {
+        DonutDialog dialog = new DonutDialog();
+        dialog.show(FragmentActivity.getSupportFragmentManager(), "Quantity");
     }
 }
