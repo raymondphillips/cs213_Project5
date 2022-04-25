@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,6 +59,13 @@ public class storeOrders extends Fragment {
         removeOrder = view.findViewById(R.id.removeOrder);
 
         orders.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            /**
+             * do something on item selected
+             * @param parent takesn an arraylist parent
+             * @param view takes a view
+             * @param position takes an int position
+             * @param id a long id
+             */
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 currentSelected = position;
@@ -65,21 +73,28 @@ public class storeOrders extends Fragment {
         });
 
         removeOrder.setOnClickListener(new View.OnClickListener(){
+            /**
+             * a method to do something when clicked on
+             * @param v takes in a view
+             */
             @Override
             public void onClick(View v) {
                 if(currentSelected == noSelection){
                     //toast here about nothing seleccted
+                    Toast.makeText(v.getContext(), "nothing is selected", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if(ordersAsStrings.size() == emptyList){
-                    //toast here about emmpty
+                    //toast here about empty
+                    Toast.makeText(v.getContext(), "empty basket", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 MainActivity.orderList.remove(currentSelected);
                 ordersAsStrings.remove(currentSelected);
                 arrayAdapter.notifyDataSetChanged();
+                Toast.makeText(v.getContext(), "removed order", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -14,9 +14,13 @@ import static org.junit.Assert.*;
  * Instrumented test, which will execute on an Android device.
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+ * @author Raymond Phillips, Xiaoxuan Chen
  */
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
+    /**
+     * a method to use the apps context
+     */
     @Test
     public void useAppContext() {
         // Context of the app under test.

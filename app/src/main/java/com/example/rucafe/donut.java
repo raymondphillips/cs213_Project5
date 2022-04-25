@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -79,6 +80,10 @@ public class donut extends Fragment {
 
         donutOrder = (Button) view.findViewById(R.id.donutOrder);
         donutOrder.setOnClickListener(new View.OnClickListener() {
+            /**
+             * a method to do something when clicked on
+             * @param v takes in a view
+             */
             @Override
             public void onClick(View v) {
                 //https://stackoverflow.com/questions/53154171/retrieve-data-from-recyclerview
@@ -87,6 +92,7 @@ public class donut extends Fragment {
                 String[] donutArgs = dataholder.get(pos).getHeader().split(" ");
                 Donut donut = new Donut(donutArgs[2], donutArgs[0], quant);
                 MainActivity.menuItemList.add(donut);
+                Toast.makeText(v.getContext(), "Added to basket", Toast.LENGTH_SHORT).show();
 
             }
         });

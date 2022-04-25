@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.sql.Array;
 import java.util.ArrayList;
@@ -62,6 +63,13 @@ public class orderingBasket extends Fragment {
         deleteItem = view.findViewById(R.id.deleteMenuItem);
 
         items.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            /**
+             * do something on item selected
+             * @param parent takesn an arraylist parent
+             * @param view takes a view
+             * @param position takes an int position
+             * @param id a long id
+             */
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 currentSelected = position;
@@ -69,10 +77,15 @@ public class orderingBasket extends Fragment {
         });
 
         placeOrder.setOnClickListener(new View.OnClickListener() {
+            /**
+             * a method to do something when clicked on
+             * @param v takes in a view
+             */
             @Override
             public void onClick(View v) {
                 if(menuAsStrings.size() == emptyList){
                     //toast here about empty
+                    Toast.makeText(v.getContext(), "empty basket", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -91,19 +104,26 @@ public class orderingBasket extends Fragment {
                 menuAsStrings.clear();
                 arrayAdapter.notifyDataSetChanged();
                 //toast here about successful order
+                Toast.makeText(v.getContext(), "order placed successfully", Toast.LENGTH_SHORT).show();
             }
         });
 
         deleteItem.setOnClickListener(new View.OnClickListener() {
+            /**
+             * a method to do something when clicked on
+             * @param v takes in a view
+             */
             @Override
             public void onClick(View v) {
                 if(menuAsStrings.size() == 0){
                     //toast here about empty
+                    Toast.makeText(v.getContext(), "empty basket", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if(currentSelected == noSelection){
                     //toast here about nothing selected
+                    Toast.makeText(v.getContext(), "nothing is selected", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -111,6 +131,7 @@ public class orderingBasket extends Fragment {
                 menuAsStrings.remove(currentSelected);
                 arrayAdapter.notifyDataSetChanged();
                 //toast here about successful deletion
+                Toast.makeText(v.getContext(), "successfully deleted", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -47,26 +47,39 @@ public class MainActivity extends AppCompatActivity  {
         storeOrderButton = findViewById(R.id.store_orders);
 
         coffeeButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * a method to do something when clicked on
+             * @param view takes in a view
+             */
             @Override
             public void onClick(View view) {
                 replaceFragment(new coffee());
             }
         });
-
+        /**
+         * a method to do something when clicked on
+         * @param view takes in a view
+         */
         donutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 replaceFragment(new donut());
             }
         });
-
+        /**
+         * a method to do something when clicked on
+         * @param view takes in a view
+         */
         orderingBasketButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 replaceFragment(new orderingBasket());
             }
         });
-
+        /**
+         * a method to do something when clicked on
+         * @param view takes in a view
+         */
         storeOrderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,6 +90,10 @@ public class MainActivity extends AppCompatActivity  {
 
     }
 
+    /**
+     * a method to replace the current fragment
+     * @param Fragment takes in the fragment that needs to be replaced.
+     */
     private void replaceFragment(Fragment Fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

@@ -13,7 +13,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-
+/**
+ * a class for the recycler adapter for the recycler donut view
+ *
+ * @author Raymond Phillips, Xiaoxuan Chen
+ */
 public class recyclerAdapter extends RecyclerView.Adapter<myviewholder>{
 
    ArrayList<donutModel> dataholder;

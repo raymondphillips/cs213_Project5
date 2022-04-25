@@ -51,6 +51,13 @@ public class coffee extends Fragment{
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            /**
+             * do something on item selected
+             * @param adapterView takes an arraylist adapterview
+             * @param view takes a view View
+             * @param i an int i
+             * @param l a long l
+             */
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String text = adapterView.getItemAtPosition(i).toString();
@@ -58,6 +65,10 @@ public class coffee extends Fragment{
                 currentSelectedSize = text;
             }
 
+            /**
+             * a method to do something when nothing is selected
+             * @param parent takes in an adapter view arraylist
+             */
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 //nothing to do here
@@ -73,6 +84,10 @@ public class coffee extends Fragment{
         List<String> addins = new ArrayList<String>();
 
         whipped_cream.setOnClickListener(new View.OnClickListener() {
+            /**
+             * a method to do something when clicked on
+             * @param v takes in a view
+             */
             @Override
             public void onClick(View v) {
                 if(whipped_cream.isChecked()){
@@ -84,6 +99,10 @@ public class coffee extends Fragment{
         });
 
         milk.setOnClickListener(new View.OnClickListener() {
+            /**
+             * a method to do something when clicked on
+             * @param v takes in a view
+             */
             @Override
             public void onClick(View v) {
                 if(milk.isChecked()){
@@ -95,6 +114,10 @@ public class coffee extends Fragment{
         });
 
         caramel.setOnClickListener(new View.OnClickListener() {
+            /**
+             * a method to do something when clicked on
+             * @param v takes in a view
+             */
             @Override
             public void onClick(View v) {
                 if(caramel.isChecked()){
@@ -106,6 +129,10 @@ public class coffee extends Fragment{
         });
 
         syrup.setOnClickListener(new View.OnClickListener() {
+            /**
+             * a method to do something when clicked on
+             * @param v takes in a view
+             */
             @Override
             public void onClick(View v) {
                 if(syrup.isChecked()){
@@ -117,6 +144,10 @@ public class coffee extends Fragment{
         });
 
         cream.setOnClickListener(new View.OnClickListener() {
+            /**
+             * a method to do something when clicked on
+             * @param v takes in a view
+             */
             @Override
             public void onClick(View v) {
                 if(cream.isChecked()){
@@ -129,11 +160,16 @@ public class coffee extends Fragment{
 
         orderCoffee = (Button) view.findViewById(R.id.orderCoffee);
         orderCoffee.setOnClickListener(new View.OnClickListener() {
+            /**
+             * a method to do something when clicked on
+             * @param v takes in a view
+             */
             @Override
             public void onClick(View v) {
                 Coffee toAdd = new Coffee(currentSelectedSize, addins);
                 MainActivity.menuItemList.add(toAdd);
                 //toast here about order being placed
+                Toast.makeText(v.getContext(), "Added to basket", Toast.LENGTH_SHORT).show();
             }
         });
 
