@@ -98,13 +98,26 @@ public class donut extends Fragment {
         donutQuantity = (EditText) view.findViewById(R.id.donutQuantity);
 
         donutQuantity.addTextChangedListener(new TextWatcher() {
+            /**
+             * a method to see the text before it changed
+             * @param s a char sequence
+             * @param start an int
+             * @param count an int
+             * @param after an int
+             */
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 updateSubtotal();
                 typedQuantity = donutQuantity.getText().toString();
                 System.out.println(typedQuantity);
             }
-
+            /**
+             * a method to see the text as it changed
+             * @param s a char sequence
+             * @param start an int
+             * @param count an int
+             * @param before an int
+             */
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateSubtotal();
@@ -112,6 +125,10 @@ public class donut extends Fragment {
                 System.out.println(typedQuantity);
             }
 
+            /**
+             * a method to see the text after it changed
+             * @param s an Editable object
+             */
             @Override
             public void afterTextChanged(Editable s) {
                 updateSubtotal();
@@ -149,7 +166,9 @@ public class donut extends Fragment {
 
         return view;
     }
-
+    /**
+     * a method to update the subtotal
+     */
     public void updateSubtotal(){
         double price;
         String toDisplay;

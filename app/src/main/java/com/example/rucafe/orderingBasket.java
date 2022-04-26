@@ -158,7 +158,9 @@ public class orderingBasket extends Fragment {
         return view;
 
     }
-
+    /**
+     * a method to update the costs
+     */
     public void updateCosts(){
         double price = 0.00;
         for(int i = 0; i < MainActivity.menuItemList.size(); i++){

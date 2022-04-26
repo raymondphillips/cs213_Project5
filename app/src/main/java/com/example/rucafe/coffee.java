@@ -202,6 +202,9 @@ public class coffee extends Fragment{
         return view;
     }
 
+    /**
+     * a method to update the subtotal
+     */
     public void updateSubtotal(){
         double baseTotal = 0.00;
         switch(currentSelectedSize){
