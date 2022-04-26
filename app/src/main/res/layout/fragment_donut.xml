@@ -39,16 +39,16 @@
        android:layout_marginBottom="70dp"
        android:text="@string/subtotal_donut"
        app:layout_constraintBottom_toBottomOf="parent"
-       app:layout_constraintEnd_toStartOf="@+id/subutotalOutput"
+       app:layout_constraintEnd_toStartOf="@+id/subutotalOutputDonut"
        app:layout_constraintHorizontal_bias="0.5"
        app:layout_constraintStart_toStartOf="parent" />
 
    <TextView
-       android:id="@+id/subutotalOutput"
+       android:id="@+id/subutotalOutputDonut"
        android:layout_width="74dp"
        android:layout_height="31dp"
        android:layout_marginBottom="70dp"
-       android:text="TextView"
+       android:text="@string/textview"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintHorizontal_bias="0.5"
