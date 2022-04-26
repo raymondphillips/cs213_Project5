@@ -1,7 +1,10 @@
 package com.example.rucafe;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -104,7 +107,16 @@ public class orderingBasket extends Fragment {
                 menuAsStrings.clear();
                 arrayAdapter.notifyDataSetChanged();
                 //toast here about successful order
-                Toast.makeText(v.getContext(), "order placed successfully", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
+                alert.setMessage("Your order has been placed");
+                alert.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(v.getContext(), "order placed successfully", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                alert.show();
+
             }
         });
 
