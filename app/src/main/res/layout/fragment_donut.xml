@@ -39,16 +39,15 @@
        android:layout_marginBottom="70dp"
        android:text="@string/subtotal_donut"
        app:layout_constraintBottom_toBottomOf="parent"
-       app:layout_constraintEnd_toStartOf="@+id/subutotalOutputDonut"
+       app:layout_constraintEnd_toStartOf="@+id/subtotalOutputDonut"
        app:layout_constraintHorizontal_bias="0.5"
        app:layout_constraintStart_toStartOf="parent" />
 
    <TextView
-       android:id="@+id/subutotalOutputDonut"
+       android:id="@+id/subtotalOutputDonut"
        android:layout_width="74dp"
        android:layout_height="31dp"
        android:layout_marginBottom="70dp"
-       android:text="@string/textview"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintHorizontal_bias="0.5"
@@ -64,7 +63,6 @@
        android:hint="@string/donut_quantity"
        android:inputType="number"
        android:minHeight="48dp"
-       android:text="@string/quanitity"
        android:visibility="visible"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"

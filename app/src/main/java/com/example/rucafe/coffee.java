@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -31,6 +32,22 @@ public class coffee extends Fragment{
     private String currentSelectedSize;
     private Button orderCoffee;
     private CheckBox whipped_cream, milk, caramel, syrup, cream;
+    private TextView coffeeOutput;
+
+    private List<String> addins;
+
+    private final String shortSize = "short";
+    private final String tallSize = "tall";
+    private final String grandeSize = "grande";
+    private final String ventiSize = "venti";
+
+    private double shortPrice = 1.69;
+    private double tallPrice = 2.09;
+    private double grandePrice = 2.49;
+    private double ventiPrice = 2.89;
+    private double addonPricePer = 0.30;
+
+    private double roundingMargin = 100.0;
 
     /**
      * a method to create the view of the fragment
@@ -63,6 +80,7 @@ public class coffee extends Fragment{
                 String text = adapterView.getItemAtPosition(i).toString();
                 //Toast.makeText(adapterView.getContext(), text, Toast.LENGTH_SHORT).show();
                 currentSelectedSize = text;
+                updateSubtotal();
             }
 
             /**
@@ -75,13 +93,15 @@ public class coffee extends Fragment{
             }
         });
 
+        coffeeOutput = view.findViewById(R.id.coffeeOutput);
+
         whipped_cream = (CheckBox) view.findViewById(R.id.whipped_cream);
         milk = (CheckBox) view.findViewById(R.id.milk);
         caramel = (CheckBox) view.findViewById(R.id.caramel);
         syrup = (CheckBox) view.findViewById(R.id.syrup);
         cream = (CheckBox) view.findViewById(R.id.cream);
 
-        List<String> addins = new ArrayList<String>();
+        addins = new ArrayList<String>();
 
         whipped_cream.setOnClickListener(new View.OnClickListener() {
             /**
@@ -95,6 +115,7 @@ public class coffee extends Fragment{
                 } else{
                     addins.remove(getResources().getResourceEntryName(R.id.whipped_cream));
                 }
+                updateSubtotal();
             }
         });
 
@@ -110,6 +131,7 @@ public class coffee extends Fragment{
                 } else{
                     addins.remove(getResources().getResourceEntryName(R.id.milk));
                 }
+                updateSubtotal();
             }
         });
 
@@ -125,6 +147,7 @@ public class coffee extends Fragment{
                 } else{
                     addins.remove(getResources().getResourceEntryName(R.id.caramel));
                 }
+                updateSubtotal();
             }
         });
 
@@ -140,6 +163,7 @@ public class coffee extends Fragment{
                 } else{
                     addins.remove(getResources().getResourceEntryName(R.id.syrup));
                 }
+                updateSubtotal();
             }
         });
 
@@ -155,6 +179,7 @@ public class coffee extends Fragment{
                 } else{
                     addins.remove(getResources().getResourceEntryName(R.id.cream));
                 }
+                updateSubtotal();
             }
         });
 
@@ -170,10 +195,29 @@ public class coffee extends Fragment{
                 MainActivity.menuItemList.add(toAdd);
                 //toast here about order being placed
                 Toast.makeText(v.getContext(), "Added to basket", Toast.LENGTH_SHORT).show();
+                updateSubtotal();
             }
         });
 
         return view;
+    }
+
+    public void updateSubtotal(){
+        double baseTotal = 0.00;
+        switch(currentSelectedSize){
+            case shortSize: baseTotal += shortPrice;
+            break;
+            case tallSize: baseTotal += tallPrice;
+            break;
+            case grandeSize: baseTotal += grandePrice;
+            break;
+            case ventiSize: baseTotal += ventiPrice;
+            break;
+        }
+
+        baseTotal += addins.size() * addonPricePer;
+        String toDisplay = String.format("%.2f", baseTotal);
+        coffeeOutput.setText(toDisplay);
     }
 
 }

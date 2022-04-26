@@ -8,11 +8,15 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -32,8 +36,15 @@ public class donut extends Fragment {
     ArrayList<donutModel> dataholder;
     private View view;
     private Button donutOrder;
-    private View quantity;
-    private static final int quant = 1;
+    private int position = -1;
+    private static int quant = 1;
+    private TextView subtotalOutputDonut;
+    private EditText donutQuantity;
+    private String typedQuantity;
+
+    private final String cakePrice = "$1.79";
+    private final String yeastPrice = "$1.59";
+    private final String holePrice = "$0.39";
 
     /**
      * a method to create the view of the fragment
@@ -80,7 +91,30 @@ public class donut extends Fragment {
 
         donutSelecter.setAdapter(new recyclerAdapter(dataholder));
 
-        quantity = view.findViewById(R.id.donutQuantity);
+        donutQuantity = (EditText) view.findViewById(R.id.donutQuantity);
+
+        donutQuantity.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                updateSubtotal();
+                typedQuantity = donutQuantity.getText().toString();
+                System.out.println(typedQuantity);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                updateSubtotal();
+                typedQuantity = donutQuantity.getText().toString();
+                System.out.println(typedQuantity);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                updateSubtotal();
+                typedQuantity = donutQuantity.getText().toString();
+                System.out.println(typedQuantity);
+            }
+        });
 
         donutOrder = (Button) view.findViewById(R.id.donutOrder);
         donutOrder.setOnClickListener(new View.OnClickListener() {
@@ -92,17 +126,34 @@ public class donut extends Fragment {
             public void onClick(View v) {
                 //https://stackoverflow.com/questions/53154171/retrieve-data-from-recyclerview
                 int pos = MainActivity.donutPosition;
-                //System.out.println(dataholder.get(pos).getHeader());
+                position = pos;
                 String[] donutArgs = dataholder.get(pos).getHeader().split(" ");
+                try{
+                    quant = Integer.parseInt(typedQuantity);
+                } catch(NumberFormatException e){
+                    Toast.makeText(v.getContext(), "Illegal quantity", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Donut donut = new Donut(donutArgs[2], donutArgs[0], quant);
                 MainActivity.menuItemList.add(donut);
                 Toast.makeText(v.getContext(), "Added to basket", Toast.LENGTH_SHORT).show();
-
+                updateSubtotal();
             }
         });
+
+        subtotalOutputDonut = (TextView) view.findViewById(R.id.subtotalOutputDonut);
 
         return view;
     }
 
+    public void updateSubtotal(){
+        if(position >=0 && position < 4){
+            subtotalOutputDonut.setText(cakePrice);
+        } else if(position >= 4 && position < 8){
+            subtotalOutputDonut.setText(yeastPrice);
+        } else if(position >= 8 && position < 12){
+            subtotalOutputDonut.setText(holePrice);
+        }
+    }
 
 }
