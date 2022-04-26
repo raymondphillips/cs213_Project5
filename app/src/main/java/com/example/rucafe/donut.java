@@ -109,7 +109,6 @@ public class donut extends Fragment {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 updateSubtotal();
                 typedQuantity = donutQuantity.getText().toString();
-                System.out.println(typedQuantity);
             }
             /**
              * a method to see the text as it changed
@@ -122,7 +121,6 @@ public class donut extends Fragment {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateSubtotal();
                 typedQuantity = donutQuantity.getText().toString();
-                System.out.println(typedQuantity);
             }
 
             /**
@@ -133,7 +131,6 @@ public class donut extends Fragment {
             public void afterTextChanged(Editable s) {
                 updateSubtotal();
                 typedQuantity = donutQuantity.getText().toString();
-                System.out.println(typedQuantity);
             }
         });
 
