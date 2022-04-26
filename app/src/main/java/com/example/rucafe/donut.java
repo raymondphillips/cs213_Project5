@@ -90,7 +90,6 @@ public class donut extends Fragment {
              */
             @Override
             public void onClick(View v) {
-                openDialog();
                 //https://stackoverflow.com/questions/53154171/retrieve-data-from-recyclerview
                 int pos = MainActivity.donutPosition;
                 //System.out.println(dataholder.get(pos).getHeader());
@@ -105,8 +104,5 @@ public class donut extends Fragment {
         return view;
     }
 
-    public void openDialog() {
-        DonutDialog dialog = new DonutDialog();
-        dialog.show(FragmentActivity.getSupportFragmentManager(), "Quantity");
-    }
+
 }
