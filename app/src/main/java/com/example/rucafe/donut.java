@@ -46,6 +46,10 @@ public class donut extends Fragment {
     private final String yeastPrice = "$1.59";
     private final String holePrice = "$0.39";
 
+    private final double cakePriDo = 1.79;
+    private final double yeastPriDo = 1.59;
+    private final double holePriDo = 0.39;
+
     /**
      * a method to create the view of the fragment
      * @param inflater an LayoutInflator object
@@ -147,12 +151,20 @@ public class donut extends Fragment {
     }
 
     public void updateSubtotal(){
+        double price;
+        String toDisplay;
         if(position >=0 && position < 4){
-            subtotalOutputDonut.setText(cakePrice);
+            price = cakePriDo * quant;
+            toDisplay = String.format("%.2f", price);
+            subtotalOutputDonut.setText(toDisplay);
         } else if(position >= 4 && position < 8){
-            subtotalOutputDonut.setText(yeastPrice);
+            price = yeastPriDo * quant;
+            toDisplay = String.format("%.2f", price);
+            subtotalOutputDonut.setText(toDisplay);
         } else if(position >= 8 && position < 12){
-            subtotalOutputDonut.setText(holePrice);
+            price = holePriDo * quant;
+            toDisplay = String.format("%.2f", price);
+            subtotalOutputDonut.setText(toDisplay);
         }
     }
 

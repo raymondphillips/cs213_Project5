@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.Array;
@@ -36,6 +37,8 @@ public class orderingBasket extends Fragment {
     private final int emptyList = 0;
     private final int noSelection = -1;
     private int currentSelected = -1;
+    private TextView orderingBasketSubtotal;
+    private double njTax = 0.06625;
 
     /**
      * a method to create the view of the fragment
@@ -54,7 +57,7 @@ public class orderingBasket extends Fragment {
 
         List<String> menuAsStrings = new ArrayList<>();
         for(int i = 0; i < MainActivity.menuItemList.size(); i++){
-            menuAsStrings.add(MainActivity.menuItemList.get(i).toString());
+            menuAsStrings.add("$" + MainActivity.menuItemList.get(i).itemPrice() + " - " + MainActivity.menuItemList.get(i).toString());
         }
 
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(
@@ -64,6 +67,9 @@ public class orderingBasket extends Fragment {
 
         placeOrder = view.findViewById(R.id.placeOrder);
         deleteItem = view.findViewById(R.id.deleteMenuItem);
+        orderingBasketSubtotal = view.findViewById(R.id.orderingBasketSubtotal);
+
+        updateCosts();
 
         items.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             /**
@@ -106,6 +112,7 @@ public class orderingBasket extends Fragment {
                 MainActivity.menuItemList.clear();
                 menuAsStrings.clear();
                 arrayAdapter.notifyDataSetChanged();
+                updateCosts();
                 //toast here about successful order
                 AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
                 alert.setMessage("Your order has been placed");
@@ -142,12 +149,31 @@ public class orderingBasket extends Fragment {
                 MainActivity.menuItemList.remove(currentSelected);
                 menuAsStrings.remove(currentSelected);
                 arrayAdapter.notifyDataSetChanged();
+                updateCosts();
                 //toast here about successful deletion
                 Toast.makeText(v.getContext(), "successfully deleted", Toast.LENGTH_SHORT).show();
             }
         });
 
         return view;
+
+    }
+
+    public void updateCosts(){
+        double price = 0.00;
+        for(int i = 0; i < MainActivity.menuItemList.size(); i++){
+            price += MainActivity.menuItemList.get(i).itemPrice();
+        }
+
+        String toDisplay = "Subtotal " + String.format("%.2f", price);
+        toDisplay += "\nTax (NJ): ";
+        double taxed = price * njTax;
+        toDisplay += String.format("%.2f", taxed);
+        toDisplay += "\nTotal: ";
+
+        double priceTaxed = price + taxed;
+        toDisplay += String.format("%.2f", priceTaxed);
+        orderingBasketSubtotal.setText(toDisplay);
 
     }
 }
