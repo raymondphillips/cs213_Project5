@@ -27,7 +27,6 @@
     <string name="donut_quantity">donut_quantity</string>
     <string name="textview">TextView</string>
     <string name="subtotal">subtotal</string>
-    <string name="textview">TextView</string>
     <string-array name="coffeeSizes">
         <item>short</item>
         <item>tall</item>
