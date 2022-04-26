@@ -21,16 +21,17 @@
 
     <ListView
         android:id="@+id/things_to_be_ordered"
-        android:layout_width="344dp"
-        android:layout_height="400dp"
+        android:layout_width="186dp"
+        android:layout_height="423dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.731" />
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ListView>
 
     <Button
         android:id="@+id/deleteMenuItem"
@@ -42,5 +43,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/placeOrder" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="126dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="80dp"
+        android:text="@string/subtotal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/orderingBasketSubtotal"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/orderingBasketSubtotal"
+        android:layout_width="169dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="80dp"
+        android:text="@string/textview"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
